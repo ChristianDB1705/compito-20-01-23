@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Indovina il numero</title>
+  </head>
+  <body>
+    <input type="text" id="userNumber" placeholder="Inserisci un numero">
+    <button onclick="checkNumber()">Conferma</button>
+    <button onclick="resetGame()">Reset</button>
+    <p id="feedback"></p>
+
+    <script>
+      let randomNumber = Math.floor(Math.random() * 100);
+
+      function checkNumber() {
+        let userNumber = document.getElementById("userNumber").value;
+        let feedback = document.getElementById("feedback");
+        if (userNumber > randomNumber) {
+          feedback.innerHTML = "Numero troppo alto";
+        } else if (userNumber < randomNumber) {
+          feedback.innerHTML = "Numero troppo basso";
+        } else {
+          feedback.innerHTML = "Complimenti, hai vinto!";
+        }
+      }
+
+      function resetGame() {
+        randomNumber = Math.floor(Math.random() * 100);
+        document.getElementById("userNumber").value = "";
+        document.getElementById("feedback").innerHTML = "";
+      }
+    </script>
+  </body>
+</html>
+
